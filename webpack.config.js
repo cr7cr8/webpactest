@@ -18,10 +18,13 @@ module.exports = {
     plugins: [
         new htmlWebpackPlugin({ template: "./src/index.html" }),
     ],
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     module: {
         rules: [
             {
-                test: /.jsx?$/,
+                test: /\.jsx?$/i,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
@@ -30,8 +33,19 @@ module.exports = {
                         plugins: ["@babel/plugin-transform-runtime"]
                     }
                 }
-            }
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                  // Creates `style` nodes from JS strings
+                  "style-loader",
+                  // Translates CSS into CommonJS
+                  "css-loader",
+                  // Compiles Sass to CSS
+                  "sass-loader",
+                ],
+              },
         ]
     },
-    devtool:"source-map"
+    devtool: "source-map"
 }

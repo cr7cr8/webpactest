@@ -1,5 +1,5 @@
 import React,{useState} from "react"
-
+import "../style.scss"
 
 export default function App(){
 
