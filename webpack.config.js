@@ -18,7 +18,6 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({ template: "./src/index.html" }),
-        "@babel/plugin-transform-runtime"
     ],
     module: {
         rules: [
