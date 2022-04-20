@@ -11,7 +11,7 @@ module.exports = {
         path: path.join(__dirname, "/dist"),
         filename: "[name].[contenthash].js",
         clean:true,
-        assetModuleFilename: 'images/[name].[hash].[ext]'
+        assetModuleFilename: 'images/[name].[hash][ext]'
     },
     devServer: {
         port: "3000",

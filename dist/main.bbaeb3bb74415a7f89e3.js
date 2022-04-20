@@ -27,6 +27,7 @@ function App() {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement((react__WEBPACK_IMPORTED_MODULE_1___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h1", null, "webpack test ", count, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
     onClick: function onClick() {
+      console.log(count + 1);
       setCount(function (pre) {
         return pre + 1;
       });
@@ -33907,4 +33908,4 @@ react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.getElementById
 
 /******/ })()
 ;
-//# sourceMappingURL=main.5bd270f8095e9b76d19e.js.map
+//# sourceMappingURL=main.bbaeb3bb74415a7f89e3.js.map
