@@ -3,10 +3,15 @@ const htmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
 
-    entry: './src/index.js',
+    entry: {
+        main: './src/index.js',
+      //  main2:'./src/index2.js'
+    },
     output: {
         path: path.join(__dirname, "/dist"),
-        filename: "bundle.js"
+        filename: "[name].[contenthash].js",
+        clean:true,
+        assetModuleFilename: 'images/[name].[hash].[ext]'
     },
     devServer: {
         port: "3000",
@@ -37,14 +42,30 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                  // Creates `style` nodes from JS strings
-                  "style-loader",
-                  // Translates CSS into CommonJS
-                  "css-loader",
-                  // Compiles Sass to CSS
-                  "sass-loader",
+                    // Creates `style` nodes from JS strings
+                    "style-loader",
+                    // Translates CSS into CommonJS
+                    "css-loader",
+                    // Compiles Sass to CSS
+                    "sass-loader",
                 ],
-              },
+            },
+            {
+                test:/\.html$/i,
+                exclude: /node_modules/,
+                use:["html-loader"]
+            },
+            // {
+            //     test:/\.(PNG|jpg|jpeg|gif|svg)/i,
+            //     exclude: /node_modules/,
+            //     use:{
+            //         loader:"file-loader",
+            //         options:{
+            //             name:"[name].[hash].[ext]",
+            //             outputPath:"imgs"
+            //         }
+            //     }
+            // }
         ]
     },
     devtool: "source-map"
