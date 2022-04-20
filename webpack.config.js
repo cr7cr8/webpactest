@@ -1,16 +1,22 @@
 const path = require("path")
-const htmlWebpackPlugin = require("html-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
+
+
 
 module.exports = {
 
     entry: {
+
+
         main: './src/index.js',
-      //  main2:'./src/index2.js'
+        main2: './src/index2.js'
     },
     output: {
         path: path.join(__dirname, "/dist"),
         filename: "[name].[contenthash].js",
-        clean:true,
+        clean: true,
         assetModuleFilename: 'images/[name].[hash][ext]'
     },
     devServer: {
@@ -21,10 +27,23 @@ module.exports = {
 
     },
     plugins: [
-        new htmlWebpackPlugin({ template: "./src/index.html" }),
+        //   new MiniCssExtractPlugin({ filename: "css/[name].[contenthash].css" }),
+
+
+        new MiniCssExtractPlugin({ filename: "css/[name].[contenthash].css" }),
+
+
+        new HtmlWebpackPlugin({ template: "./src/index.html" }),
     ],
     resolve: {
         extensions: ['.js', '.jsx']
+    },
+    optimization: {
+        minimizer: [
+            new CssMinimizerPlugin(),
+        ],
+        //minimize: true,  //enable minimising css in devleopment mode
+
     },
     module: {
         rules: [
@@ -40,20 +59,20 @@ module.exports = {
                 }
             },
             {
-                test: /\.s[ac]ss$/i,
+                test: /\.(s[ac])|(c)ss$/i,
                 use: [
-                    // Creates `style` nodes from JS strings
-                    "style-loader",
+
+                    { loader: MiniCssExtractPlugin.loader, },
                     // Translates CSS into CommonJS
-                    "css-loader",
+                    { loader: "css-loader" },
                     // Compiles Sass to CSS
-                    "sass-loader",
+                    { loader: "sass-loader" },
                 ],
             },
             {
-                test:/\.html$/i,
+                test: /\.html$/i,
                 exclude: /node_modules/,
-                use:["html-loader"]
+                use: ["html-loader"]
             },
             // {
             //     test:/\.(PNG|jpg|jpeg|gif|svg)/i,

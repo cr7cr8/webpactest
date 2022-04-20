@@ -1,0 +1,1 @@
+{"version":3,"file":"main2.91bfb1612e2485ea9fce.js","mappings":";;;;;AAAAA,KAAK,CAAC,KAAD,CAAL,C","sources":["webpack://webpactest/./src/index2.js"],"sourcesContent":["alert(\"aaa\")"],"names":["alert"],"sourceRoot":""}

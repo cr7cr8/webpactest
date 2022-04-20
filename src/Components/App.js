@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import "../style.scss"
+import "../style.css"
+import "../style2.css"
 
 export default function App() {
 
