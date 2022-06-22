@@ -1,7 +1,10 @@
+// /** @jsx jsx */
 import React, { useState } from "react"
 import "../style.scss"
 import style1 from "../style.module.css"
 import style2 from "../style2.module.css"
+
+import { jsx, css } from '@emotion/react'
 
 export default function App() {
 
@@ -9,6 +12,18 @@ export default function App() {
 
     return (
         <>
+            <div
+                css={{
+                    backgroundColor: 'red',
+                    fontSize:"5rem",
+                    color:"skyblue",
+                    '&:hover': {
+                        color: 'lightgreen'
+                    }
+                }}
+            >
+                This has css in js style.
+            </div>
             <h1>webpack test {count} <button onClick={function () {
                 console.log(count + 1)
                 setCount(pre => pre + 1)

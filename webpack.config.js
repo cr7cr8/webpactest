@@ -47,14 +47,15 @@ module.exports = {
     },
     module: {
         rules: [
+            
             {
                 test: /\.jsx?$/i,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: ["@babel/preset-env", "@babel/preset-react"],
-                        plugins: ["@babel/plugin-transform-runtime"]
+                        presets: ["@emotion/babel-preset-css-prop","@babel/preset-env", "@babel/preset-react"],
+                        plugins: ["@emotion/babel-plugin","@babel/plugin-transform-runtime"]
                     }
                 }
             },
