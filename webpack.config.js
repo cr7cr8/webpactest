@@ -11,7 +11,7 @@ module.exports = {
 
 
         main: './src/index.js',
-      //  main2: './src/index2.js'
+        //  main2: './src/index2.js'
     },
     output: {
         path: path.join(__dirname, "/dist"),
@@ -47,15 +47,15 @@ module.exports = {
     },
     module: {
         rules: [
-            
             {
                 test: /\.jsx?$/i,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: ["@emotion/babel-preset-css-prop","@babel/preset-env", "@babel/preset-react"],
-                        plugins: ["@emotion/babel-plugin","@babel/plugin-transform-runtime"]
+                        presets: ["@emotion/babel-preset-css-prop", "@babel/preset-env", "@babel/preset-react"],
+                        //   plugins: ["@emotion/babel-plugin","@babel/plugin-transform-runtime"]
+                        plugins: ["@babel/plugin-transform-runtime"]
                     }
                 }
             },
